@@ -1,4 +1,4 @@
-package github.xszhangxiaocuo.com;
+package github.xszhangxiaocuo.com.test1;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
