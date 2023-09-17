@@ -10,6 +10,10 @@
 <!--    <listener>-->
 <!--        <listener-class>github.xszhangxiaocuo.com.test2.JdbcPropertiesListener</listener-class>-->
 <!--    </listener>-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>test1Servlet1</servlet-name>
         <servlet-class>github.xszhangxiaocuo.com.test1.Servlet1</servlet-class>
