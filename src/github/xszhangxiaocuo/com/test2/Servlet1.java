@@ -32,8 +32,10 @@ public class Servlet1 extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");//设置response使用utf-8并告知浏览器，解决中文乱码
         out.println("访问计数："+count);
 
-        InputStream input = ctx.getResourceAsStream("/WEB-INF/jdbc.properties");//读取配置文件并输出到控制台
-        System.out.println(new String(input.readAllBytes()));
+        InputStream input = ctx.getResourceAsStream("/WEB-INF/jdbc.properties");//读取文件并输出到控制台
+        String str = new String(input.readAllBytes());
+        System.out.println(str);
+        out.println(str);
     }
 
     @Override
