@@ -17,8 +17,7 @@ public class Servlet1 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         ServletContext ctx = this.getServletContext();
-        String param = ctx.getInitParameter("encoding");//获取servletcontext种的参数
-
+        String param = ctx.getInitParameter("encoding");//获取servletcontext中的参数
 
         int count=0;
         if (ctx.getAttribute("count")==null) {
