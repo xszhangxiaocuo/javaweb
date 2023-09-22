@@ -14,7 +14,7 @@ public class RefererServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String referer = request.getHeader("Referer");
         // 检查Referer是否为空或不包含本网站首页
-        if (referer == null || !referer.contains("/javaweb_war_exploded")) {
+        if (referer == null || !referer.contains("/javaweb_war_exploded/referer.html")) {
             // 重定向回首页或其他适当的页面
             response.sendRedirect("/javaweb_war_exploded/login.html");
         } else {
