@@ -17,7 +17,7 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");//设置response使用utf-8并告知浏览器，解决中文乱码
         //退出登录注销session
-        if (request.getHeader("Referer")!=null&&request.getHeader("Referer").contains("/javaweb_war_exploded/test3/shopping")){
+        if (request.getHeader("Referer")!=null&&request.getHeader("Referer").equals("/javaweb_war_exploded/test3/shopping")){
             request.getSession().invalidate();
             System.out.println("session已注销！");
         }
