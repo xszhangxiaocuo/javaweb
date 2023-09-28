@@ -41,12 +41,6 @@ public class login extends HttpServlet {
             request.getRequestDispatcher("/login_session.html").forward(request,response);
             return;
         }
-        //添加免登录cookie
-        if (contact!=null&&contact.equals("noPassword")){
-            Cookie cookie = new Cookie("noPassword","true");
-            cookie.setMaxAge(30);
-            response.addCookie(cookie);
-        }
 
         HttpSession session = request.getSession();
         User user = Users.getUser(username);
@@ -58,6 +52,12 @@ public class login extends HttpServlet {
             session.setAttribute("user",user);
         }
         if (user.getName().equals("xszxc")&&user.getPassword().equals("123")){
+            //添加免登录cookie
+            if (contact!=null&&contact.equals("noPassword")){
+                Cookie cookie = new Cookie("noPassword","true");
+                cookie.setMaxAge(30);
+                response.addCookie(cookie);
+            }
             request.getRequestDispatcher("/shopping.html").forward(request,response);
         }else {
             request.getRequestDispatcher("/login_session.html").forward(request,response);

@@ -35,14 +35,14 @@ public class login_cookie extends HttpServlet {
             request.getRequestDispatcher("/login_cookie.html").forward(request,response);
             return;
         }
-        //添加免登录cookie
-        if (contact!=null&&contact.equals("noPassword")){
-            Cookie cookie = new Cookie("noPassword","true");
-            cookie.setMaxAge(30);
-            response.addCookie(cookie);
-        }
 
         if (username.equals("xszxc")&&password.equals("123")){
+            //添加免登录cookie
+            if (contact!=null&&contact.equals("noPassword")){
+                Cookie cookie = new Cookie("noPassword","true");
+                cookie.setMaxAge(30);
+                response.addCookie(cookie);
+            }
             request.getRequestDispatcher("/test3/successServlet").forward(request,response);
         }else {
             request.getRequestDispatcher("/login_cookie.html").forward(request,response);
