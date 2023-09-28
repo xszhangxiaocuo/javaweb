@@ -32,6 +32,10 @@ public class cart extends HttpServlet {
             out.println("找不到购物车！");
             return;
         }
+        if (session.getAttribute("user")==null){
+            out.println("找不到用户信息！");
+            return;
+        }
         out.println("欢迎您！"+((User) session.getAttribute("user")).getName()+"<br>");
         out.println("您的购物车有"+cart.getNumber()+"个商品<br><br>");
         out.println("您已选购以下书籍：<br>");
