@@ -1,8 +1,8 @@
 package github.xszhangxiaocuo.com.test3;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
 import java.io.IOException;
 
@@ -35,7 +35,15 @@ public class login_cookie extends HttpServlet {
             request.getRequestDispatcher("/login_cookie.html").forward(request,response);
             return;
         }
-
+        HttpSession session = request.getSession();
+        User user = Users.getUser(username);
+        if (user==null){
+            Users.addUser(username,password);
+            user = Users.getUser(username);
+        }
+        if (session.getAttribute("user")==null){
+            session.setAttribute("user",user);
+        }
         if (username.equals("xszxc")&&password.equals("123")){
             //添加免登录cookie
             if (contact!=null&&contact.equals("noPassword")){
