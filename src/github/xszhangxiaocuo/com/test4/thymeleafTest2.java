@@ -10,23 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "thymeleafTest", value = "/thymeleafTest")
-public class thymeleafTest extends HttpServlet {
+@WebServlet(name = "thymeleafTest2", value = "/test4/thymeleafTest2")
+public class thymeleafTest2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("name","cqut");
-        request.setAttribute("age","32");
+        request.setAttribute("cn","这是修改了启动页面的index2.html");
+        request.setAttribute("cqut","注意：<a href='https://www.cqut.edu.cn'>学校官网</a>");
 
-        response.setContentType("text/html;chatset=utf-8");
+        request.setAttribute("description","这是模版替换的网页描述");
+        request.setAttribute("keywords","这是模版替换的关键词");
+
+        response.setContentType("text/html;charset=utf-8");
 
         WebApplication webApplication = new WebApplication(this.getServletContext());
         TemplateEngine templateEngine = webApplication.getTemplateEngine();
         WebContext ctx = new WebContext(request,response,this.getServletContext());
-        templateEngine.process("index",ctx,response.getWriter());
+        templateEngine.process("index2",ctx,response.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request,response);
     }
 }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="description" th:content="${description}" />
+    <meta name="keywords" th:content="${keywords}" />
+    <title>index</title>
+</head>
+<body>
+<h3>接收文本并显示</h3>
+<p th:text="${cn}">这是静态数据abc</p>
+<p th:text="${cqut}">这是静态数据abc</p>
+标签外的文字说明：
+<p th:utext="${cqut}">这是静态数据abc</p>
+<img th:src="@{/static/image/background.webp}" alt="zero two"><br>
+</body>
+</html>
