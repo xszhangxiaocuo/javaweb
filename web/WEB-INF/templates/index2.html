@@ -12,6 +12,16 @@
 <p th:text="${cqut}">这是静态数据abc</p>
 标签外的文字说明：
 <p th:utext="${cqut}">这是静态数据abc</p>
+<!--接收对象方法一-->
+<p th:object="${cake}">
+    蛋糕编号：<span th:text="*{id}"></span><br>
+    蛋糕名：<span th:text="*{name}"></span><br>
+    生产日期：<span th:text="*{#dates.format(date,'yyyy.MM.dd.HH.mm')}"></span><br>
+</p>
+<!--接收对象方法二-->
+<p th:text="蛋糕编号 + ${cake.id}"></p>
+<!--接收方法三-->
+<p th:text="|蛋糕编号: ${cake.getId()}|"></p>
 <img th:src="@{/static/image/background.webp}" alt="zero two"><br>
 </body>
 </html>
