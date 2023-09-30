@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 @WebServlet(name = "thymeleafTest2", value = "/test4/thymeleafTest2")
 public class thymeleafTest2 extends HttpServlet {
@@ -23,12 +25,23 @@ public class thymeleafTest2 extends HttpServlet {
         request.setAttribute("description","这是模版替换的网页描述");
         request.setAttribute("keywords","这是模版替换的关键词");
 
+        //获取对象的值
         Cake cake = new Cake();
         cake.setId("001");
         cake.setName("黑森林蛋糕");
         cake.setDate(new Date());
         cake.setMaterial(Arrays.asList("面粉","白砂糖","鸡蛋"));
         request.setAttribute("cake",cake);
+
+        //获取集合的单个值
+        List<String> computer = Arrays.asList("联想","苹果","小米","华为");
+        request.setAttribute("computer",computer);
+
+        //获取Map的单个值
+        HashMap<String,String> movie = new HashMap<>();
+        movie.put("001","电影001");
+        movie.put("002","电影002");
+        request.setAttribute("movie",movie);
 
         WebApplication webApplication = new WebApplication(this.getServletContext());
         TemplateEngine templateEngine = webApplication.getTemplateEngine();

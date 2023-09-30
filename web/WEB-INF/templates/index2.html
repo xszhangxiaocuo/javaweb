@@ -22,6 +22,26 @@
 <p th:text="蛋糕编号 + ${cake.id}"></p>
 <!--接收方法三-->
 <p th:text="|蛋糕编号: ${cake.getId()}|"></p>
+<h4>获取List集合</h4>
+<!--整体获取-->
+<ul>
+    <li th:text="${computer}"></li>
+</ul>
+<!--单个获取-->
+<ul>
+    <li th:text="${computer[1]}"></li>
+</ul>
+<h4>获取Map集合</h4>
+<p th:text="${movie['001']}"></p>
+<p th:text="${movie.get('002')}"></p>
+<h4>if判断</h4>
+<!--th:if-->
+<p th:if="${true}" th:text="${cqut}">条件判断是否显示</p>
+<p th:if="${false}" th:text="${cn}">条件判断是否显示</p>
+<!--th:unless-->
+<p th:unless="${true}" th:text="${cqut}">条件判断是否显示</p>
+<p th:unless="${false}" th:text="${cn}">条件判断是否显示</p>
+<!--显示图片-->
 <img th:src="@{/static/image/background.webp}" alt="zero two"><br>
 </body>
 </html>
