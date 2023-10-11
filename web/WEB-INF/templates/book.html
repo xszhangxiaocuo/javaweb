@@ -1,21 +1,62 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">-->
+<!--<head>-->
+<!--    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">-->
+<!--    <title>index</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<table border="1">-->
+<!--<tr>-->
+<!--    <th>书号</th>-->
+<!--    <th>书名</th>-->
+<!--    <th>出版社</th>-->
+<!--</tr>-->
+<!--    <tr th:each="list:${session.book}">-->
+<!--        <td th:text="${list.bookid}">123456789</td>-->
+<!--        <td th:text="${list.bookname}">大道至简</td>-->
+<!--        <td th:text="${list.publisher}">清华大学出版社</td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>index</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
-<table border="1">
-<tr>
-    <th>书号</th>
-    <th>书名</th>
-    <th>出版社</th>
-</tr>
-    <tr th:each="list:${session.book}">
-        <td th:text="${list.bookid}">123456789</td>
-        <td th:text="${list.bookname}">大道至简</td>
-        <td th:text="${list.publisher}">清华大学出版社</td>
-    </tr>
-</table>
+<div>
+    <table>
+        <tr>
+            <th>书号</th>
+            <th>书名</th>
+            <th>出版社</th>
+        </tr>
+        <tr th:each="list:${session.book}">
+            <td th:text="${list.bookid}">123456789</td>
+            <td th:text="${list.bookname}">大道至简</td>
+            <td th:text="${list.publisher}">清华大学出版社</td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
+
