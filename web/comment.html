@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Message Form</title>
+    <!-- 可以在此处添加其他元素或样式 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <!-- 当表单提交时，应将用户输入发送到服务器端脚本（例如：submit_message.php），请根据实际情况替换 -->
+    <form action="/javaweb_war_exploded//test7/SensitiveWordServlet" method="POST">
+        <!-- 用户名输入 -->
+        <div>
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <br>
+        <!-- 留言输入 -->
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <br>
+        <!-- 提交按钮 -->
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
