@@ -13,16 +13,20 @@ public class OnlineUserListener implements HttpSessionListener {
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {
+        System.out.println("session被创建");
         count++;
         if (context == null) {
             context = se.getSession().getServletContext();
         }
         context.setAttribute("user", count);
+        System.out.println("创建后count="+context.getAttribute("user"));
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
+        System.out.println("session被销毁");
         count--;
         context.setAttribute("user", count);
+        System.out.println("销毁后count="+context.getAttribute("user"));
     }
 }

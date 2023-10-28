@@ -2,6 +2,7 @@ package github.xszhangxiaocuo.com.test7;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,11 @@ public class ServletLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 注销session
         request.getSession().invalidate();
-
+        for (Cookie cookie:request.getCookies()){
+            if (cookie.getName().equals("autoLogin")){
+                cookie.setMaxAge(0);
+            }
+        }
         // 重定向到在线用户显示页面，更新用户数量
         response.sendRedirect(request.getContextPath()+"/test7/OnlineUserServlet");
     }

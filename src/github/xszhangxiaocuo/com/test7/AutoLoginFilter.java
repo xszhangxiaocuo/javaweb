@@ -24,6 +24,11 @@ public class AutoLoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
+        if(req.getRequestURI().endsWith("/ServletLogout")||req.getRequestURI().endsWith("/OnlineUserServlet")){
+            chain.doFilter(req,res);
+            return;
+        }
+
         boolean isLoggedIn = false;
         User user = (User) req.getSession().getAttribute("user");
 
@@ -61,6 +66,9 @@ public class AutoLoginFilter implements Filter {
         // 检查是否已经登录，并且当前URL是登录页
         String currentURL = req.getRequestURI();
         boolean isLoginURL = currentURL != null && currentURL.endsWith("/rememberlogin.html");
+        System.out.println(currentURL);
+        System.out.println(isLoggedIn);
+        System.out.println(isLoginURL);
         if (isLoggedIn && isLoginURL) {
             // 如果用户已登录并且当前是登录页面，则重定向到主页或欢迎页
             res.sendRedirect(req.getContextPath() + "/welcome.html");
